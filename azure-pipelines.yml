@@ -27,6 +27,4 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python -m pip install --upgrade pip
     pytest
-    displayName: 'pytest'
