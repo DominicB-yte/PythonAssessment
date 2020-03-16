@@ -1,15 +1,16 @@
-from Encoder import CaesarEncrypt, CaesarDecrypt
+from Encoder import Security
 import pathlib
 
 Cryption = int(input("1. Encrypt\n2. Decrypt\n: "))
 
+def Main():
     if Cryption == 1:
         Cipher = int(input("1. Encrypt in Caesar\n2. Encrypt in Polyalphabetical\n: "))
         if Cipher == 1:
             CEinput = input("What file would you like to Encrypt?: ")
             theFile = CEinput + ".txt"
             CEFile = pathlib.Path(__file__).parent / theFile
-            Security.CaesarEncrypt(CEFile)
+            # Security.CaesarEncrypt(CEFile)
         elif Cipher == 2:
             PEinput = input("What file would you like to Encrypt?: ")
             theFile = PEinput + ".txt"
@@ -23,7 +24,7 @@ Cryption = int(input("1. Encrypt\n2. Decrypt\n: "))
             CDinput = input("What file would you like to Decrypt?: ")
             theFile = CDinput + ".txt"
             CDFile = pathlib.Path(__file__).parent / theFile
-            # Security.CaesarDecrypt(CDFile)
+            Security.CaesarDecrypt(CDFile)
         elif Decode == 2:
             PDinput = input("What file would you like to Decrypt?: ")
             theFile = PDinput + ".txt"
