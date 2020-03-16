@@ -50,7 +50,7 @@ class Security:
         newFile.write(DecryptStr)
         return DecryptStr
 
-  def PolyEncrypt(self):
+    def PolyEncrypt(self):
         PEkey = input("Please enter your Keyword: ")
         location = self
         toFile = pathlib.Path(__file__).parent / "PolyEncrypted.txt"
@@ -66,11 +66,11 @@ class Security:
         for j in SplitFile:
             if j in characters:
                 CharIn = characters.index(j)
-                newChar = characters[(CharIn - move) % len(characters)]
-                Decrypted.append(newChar)
+                newChar = characters[(CharIn + move) % len(characters)]
+                Encrypted.append(newChar)
 
-        DecryptStr = ''.join(Decrypted)
-        print("Successfully Decrypted File!")
+        DecryptStr = ''.join(Encrypted)
+        print("Successfully Encrypted File!")
 
         newFile = open(toFile, "w")
         newFile.write(DecryptStr)
@@ -85,10 +85,17 @@ class Security:
         SplitFile = list(data)
         Decrypted = []
         SplitKey = list(PDkey)
-                newChar = characters[(CharIn + move) % len(characters)]
-                Encrypted.append(newChar)
 
-        EncryptStr = ''.join(Encrypted)
+        for i in SplitKey:
+            if i in characters:
+                move = characters.index(i)
+        for j in SplitFile:
+            if j in characters:
+                CharIn = characters.index(j)
+                newChar = characters[(CharIn - move) % len(characters)]
+                Decrypted.append(newChar)
+
+        EncryptStr = ''.join(Decrypted)
         print("Successfully Encrypted File!")
 
         newFile = open(toFile, "w")
