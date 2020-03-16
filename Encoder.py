@@ -5,7 +5,31 @@ characters = [
 ]
 
 class Security:
-    def PolyEncrypt(self):
+    def CaesarDecrypt(self):
+
+        CDshift = int(input("Please type the amount to shift by: "))
+        encrypted = self
+        toDecrypt = pathlib.Path(__file__).parent / "CaesarDecrypted.txt"
+
+        with open(encrypted, 'r') as FileToDecrypt:
+            data = FileToDecrypt.read()
+        SplitFile = list(data)
+        Decrypted = []
+
+        for j in SplitFile:
+            if j in characters:
+                CharIn = characters.index(j)
+                newChar = characters[(CharIn - CDshift) % len(characters)]
+                Decrypted.append(newChar)
+
+        DecryptStr = ''.join(Decrypted)
+        print("Successfully Decrypted File!")
+
+        newFile = open(toDecrypt, "w")
+        newFile.write(DecryptStr)
+        return DecryptStr
+
+  def PolyEncrypt(self):
 
         PEkey = input("Please enter your Keyword: ")
         location = self
