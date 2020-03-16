@@ -24,7 +24,7 @@ def Main():
             CDinput = input("What file would you like to Decrypt?: ")
             theFile = CDinput + ".txt"
             CDFile = pathlib.Path(__file__).parent / theFile
-            # Security.CaesarDecrypt(CDFile)
+            Security.CaesarDecrypt(CDFile)
         elif Decode == 2:
             PDinput = input("What file would you like to Decrypt?: ")
             theFile = PDinput + ".txt"
