@@ -1,5 +1,5 @@
 # FinalAssessment
- Encryption software
+ ###Encryption software
 
 #### Introduction:
 This software is designed to be used as a way for you to both encrypt and decrypt text files. There are two types of
