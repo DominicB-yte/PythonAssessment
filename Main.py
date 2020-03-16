@@ -1,5 +1,5 @@
-from Encoder import Security
 import pathlib
+from Encoder import Security
 
 Cryption = int(input("1. Encrypt\n2. Decrypt\n: "))
 
@@ -10,7 +10,7 @@ def Main():
             CEinput = input("What file would you like to Encrypt?: ")
             theFile = CEinput + ".txt"
             CEFile = pathlib.Path(__file__).parent / theFile
-            # Security.CaesarEncrypt(CEFile)
+            Security.CaesarEncrypt(CEFile)
         elif Cipher == 2:
             PEinput = input("What file would you like to Encrypt?: ")
             theFile = PEinput + ".txt"
