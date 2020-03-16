@@ -1,5 +1,5 @@
 import pathlib
-# from Encoder import Security
+from Encoder import Security
 
 Cryption = int(input("1. Encrypt\n2. Decrypt\n: "))
 
@@ -29,7 +29,7 @@ def Main():
             PDinput = input("What file would you like to Decrypt?: ")
             theFile = PDinput + ".txt"
             PDFile = pathlib.Path(__file__).parent / theFile
-            # Security.PolyDecrypt(PDFile)
+            Security.PolyDecrypt(PDFile)
 
 if __name__ == "__main__":
     Main()
