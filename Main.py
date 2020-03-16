@@ -15,7 +15,7 @@ def Main():
             PEinput = input("What file would you like to Encrypt?: ")
             theFile = PEinput + ".txt"
             PEFile = pathlib.Path(__file__).parent / theFile
-            # Security.PolyEncrypt(PEFile)
+            Security.PolyEncrypt(PEFile)
 
 
     if Cryption == 2:
