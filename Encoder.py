@@ -6,7 +6,6 @@ characters = [
 
 class Security:
     def CaesarDecrypt(self):
-
         CDshift = int(input("Please type the amount to shift by: "))
         encrypted = self
         toDecrypt = pathlib.Path(__file__).parent / "CaesarDecrypted.txt"
@@ -30,7 +29,6 @@ class Security:
         return DecryptStr
 
   def PolyEncrypt(self):
-
         PEkey = input("Please enter your Keyword: ")
         location = self
         toFile = pathlib.Path(__file__).parent / "PolyEncrypted.txt"
@@ -46,6 +44,25 @@ class Security:
         for j in SplitFile:
             if j in characters:
                 CharIn = characters.index(j)
+                newChar = characters[(CharIn - move) % len(characters)]
+                Decrypted.append(newChar)
+
+        DecryptStr = ''.join(Decrypted)
+        print("Successfully Decrypted File!")
+
+        newFile = open(toFile, "w")
+        newFile.write(DecryptStr)
+        return DecryptStr
+      
+    def PolyDecrypt(self):
+        PDkey = input("Please enter your Keyword: ")
+        location = self
+        toFile = pathlib.Path(__file__).parent / self
+        with open(location, 'r') as FileToEncrypt:
+            data = FileToEncrypt.read()
+        SplitFile = list(data)
+        Decrypted = []
+        SplitKey = list(PDkey)
                 newChar = characters[(CharIn + move) % len(characters)]
                 Encrypted.append(newChar)
 
@@ -55,3 +72,4 @@ class Security:
         newFile = open(toFile, "w")
         newFile.write(EncryptStr)
         return EncryptStr
+
