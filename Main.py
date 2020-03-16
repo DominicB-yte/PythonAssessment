@@ -1,8 +1,9 @@
-from Encoder import CaesarEncrypt, CaesarDecrypt
 import pathlib
+from Encoder import Security
 
 Cryption = int(input("1. Encrypt\n2. Decrypt\n: "))
 
+def Main():
     if Cryption == 1:
         Cipher = int(input("1. Encrypt in Caesar\n2. Encrypt in Polyalphabetical\n: "))
         if Cipher == 1:
