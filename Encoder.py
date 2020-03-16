@@ -5,29 +5,6 @@ characters = [
 ]
 
 class Security:
-#     def CaesarEncrypt(self):
-
-#         CEshift = int(input("Please type the amount to shift by: "))
-#         location = self
-#         toFile = pathlib.Path(__file__).parent / "CaesarEncrypted.txt"
-#         with open(location, 'r') as FileToEncrypt:
-#             data = FileToEncrypt.read()
-#         SplitFile = list(data)
-#         Encrypted = []
-
-#         for i in SplitFile:
-#             if i in characters:
-#                 CharIn = characters.index(i)
-#                 newChar = characters[(CharIn + CEshift) % len(characters)]
-#                 Encrypted.append(newChar)
-
-#         EncryptStr = ''.join(Encrypted)
-#         print("Successfully Encrypted File!")
-
-#         newFile = open(toFile, "w")
-#         newFile.write(EncryptStr)
-#         return EncryptStr
-
     def CaesarDecrypt(self):
 
         CDshift = int(input("Please type the amount to shift by: "))
