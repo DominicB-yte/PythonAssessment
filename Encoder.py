@@ -7,7 +7,7 @@ characters = [
 class Security:
     def CaesarEncrypt(self):
         CEshift = int(input("Please type the amount to shift by: "))
-        location = self
+        location = pathlib.Path(__file__).parent / self
         toFile = pathlib.Path(__file__).parent / "CaesarEncrypted.txt"
         with open(location, 'r') as FileToEncrypt:
             data = FileToEncrypt.read()
@@ -26,10 +26,10 @@ class Security:
         newFile = open(toFile, "w")
         newFile.write(EncryptStr)
         return EncryptStr
-    
+
     def CaesarDecrypt(self):
         CDshift = int(input("Please type the amount to shift by: "))
-        encrypted = self
+        encrypted = pathlib.Path(__file__).parent / self
         toDecrypt = pathlib.Path(__file__).parent / "CaesarDecrypted.txt"
 
         with open(encrypted, 'r') as FileToDecrypt:
@@ -52,7 +52,7 @@ class Security:
 
     def PolyEncrypt(self):
         PEkey = input("Please enter your Keyword: ")
-        location = self
+        location = pathlib.Path(__file__).parent / self
         toFile = pathlib.Path(__file__).parent / "PolyEncrypted.txt"
         with open(location, 'r') as FileToEncrypt:
             data = FileToEncrypt.read()
@@ -69,17 +69,17 @@ class Security:
                 newChar = characters[(CharIn + move) % len(characters)]
                 Encrypted.append(newChar)
 
-        DecryptStr = ''.join(Encrypted)
+        EncryptStr = ''.join(Encrypted)
         print("Successfully Encrypted File!")
 
         newFile = open(toFile, "w")
-        newFile.write(DecryptStr)
-        return DecryptStr
-      
+        newFile.write(EncryptStr)
+        return EncryptStr
+
     def PolyDecrypt(self):
         PDkey = input("Please enter your Keyword: ")
-        location = self
-        toFile = pathlib.Path(__file__).parent / self
+        location = pathlib.Path(__file__).parent / self
+        toFile = pathlib.Path(__file__).parent / "PolyDecrypted.txt"
         with open(location, 'r') as FileToEncrypt:
             data = FileToEncrypt.read()
         SplitFile = list(data)
@@ -95,10 +95,9 @@ class Security:
                 newChar = characters[(CharIn - move) % len(characters)]
                 Decrypted.append(newChar)
 
-        EncryptStr = ''.join(Decrypted)
-        print("Successfully Encrypted File!")
+        DecryptStr = ''.join(Decrypted)
+        print("Successfully Decrypted File!")
 
         newFile = open(toFile, "w")
-        newFile.write(EncryptStr)
-        return EncryptStr
-
+        newFile.write(DecryptStr)
+        return DecryptStr
