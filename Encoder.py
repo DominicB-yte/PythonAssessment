@@ -1,11 +1,13 @@
+# Alternate Encryptor with letters and numbers: https://www.dcode.fr/vigenere-cipher
+
 characters = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "\n", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "<", ">", ",", ".", "?", "/", "\\", "|", "[", "]", "{", "}", ";", ":", " "
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "<", ">", ",", ".", "?", "/", "\\", "|", "[", "]", "{", "}", ";", ":"
 ]
 
 class Security:
     def CaesarEncrypt(self):
         CEshift = int(input("Please type the amount to shift by: "))
-        File = str(self)
+        File = list(self)
         Encrypted = []
 
         for i in File:
@@ -22,7 +24,7 @@ class Security:
 
     def CaesarDecrypt(self):
         CDshift = int(input("Please type the amount to shift by: "))
-        encrypted = str(self)
+        encrypted = list(self)
         Decrypted = []
 
         for j in encrypted:
@@ -39,7 +41,7 @@ class Security:
 
     def PolyEncrypt(self):
         PEkey = input("Please enter your Keyword: ")
-        File = str(self)
+        File = list(self)
         Encrypted = []
         SplitKey = list(PEkey)
 
@@ -60,7 +62,7 @@ class Security:
 
     def PolyDecrypt(self):
         PDkey = input("Please enter your Keyword: ")
-        File = str(self)
+        File = list(self)
         Decrypted = []
         SplitKey = list(PDkey)
 
