@@ -1,4 +1,3 @@
-import pathlib
 from Encoder import Security
 
 Cryption = int(input("1. Encrypt\n2. Decrypt\n: "))
@@ -7,29 +6,21 @@ def Main():
     if Cryption == 1:
         Cipher = int(input("1. Encrypt in Caesar\n2. Encrypt in Polyalphabetical\n: "))
         if Cipher == 1:
-            CEinput = input("What file would you like to Encrypt?: ")
-            theFile = CEinput + ".txt" #Gets the user input and adds .txt
-            CEFile = pathlib.Path(__file__).parent / theFile
-            Security.CaesarEncrypt(CEFile)
+            CEinput = input("What would you like to Encrypt?: ")
+            Security.CaesarEncrypt(CEinput)
         elif Cipher == 2:
-            PEinput = input("What file would you like to Encrypt?: ")
-            theFile = PEinput + ".txt" #Gets the user input and adds .txt
-            PEFile = pathlib.Path(__file__).parent / theFile
-            Security.PolyEncrypt(PEFile)
+            PEinput = input("What would you like to Encrypt?: ")
+            Security.PolyEncrypt(PEinput)
 
 
     if Cryption == 2:
         Decode = int(input("1. Decrypt Caesar\n2. Decrypt Polyalphabetical\n: "))
         if Decode == 1:
-            CDinput = input("What file would you like to Decrypt?: ")
-            theFile = CDinput + ".txt" #Gets the user input and adds .txt
-            CDFile = pathlib.Path(__file__).parent / theFile
-            Security.CaesarDecrypt(CDFile)
+            CDinput = input("What would you like to Decrypt?: ")
+            Security.CaesarDecrypt(CDinput)
         elif Decode == 2:
-            PDinput = input("What file would you like to Decrypt?: ")
-            theFile = PDinput + ".txt" #Gets the user input and adds .txt
-            PDFile = pathlib.Path(__file__).parent / theFile
-            Security.PolyDecrypt(PDFile)
+            PDinput = input("What would you like to Decrypt?: ")
+            Security.PolyDecrypt(PDinput)
 
 if __name__ == "__main__":
     Main()
