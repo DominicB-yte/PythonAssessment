@@ -1,8 +1,7 @@
-# Alternate Encryptor with letters and numbers: https://www.dcode.fr/vigenere-cipher
-
 characters = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "<", ">", ",", ".", "?", "/", "\\", "|", "[", "]", "{", "}", ";", ":"
 ]
+
 
 class Security:
     def CaesarEncrypt(self):
@@ -43,16 +42,21 @@ class Security:
         PEkey = input("Please enter your Keyword: ")
         File = list(self)
         Encrypted = []
+        Move = []
         SplitKey = list(PEkey)
 
         for i in SplitKey:
             if i in characters:
-                move = characters.index(i)
-        for j in File:
-            if j in characters:
-                CharIn = characters.index(j)
-                newChar = characters[(CharIn + move) % len(characters)]
+                moveChar = characters.index(i)
+                Move.append(moveChar)
+        cnt = 0
+        for stg in File:
+            if stg in characters:
+                CharIn = characters.index(stg)
+                CharMove = Move[cnt % len(Move)]
+                newChar = characters[(CharIn + CharMove) % len(characters)]
                 Encrypted.append(newChar)
+            cnt += 1
 
         EncryptStr = ''.join(Encrypted)
         print("Successfully Encrypted File!")
@@ -64,16 +68,21 @@ class Security:
         PDkey = input("Please enter your Keyword: ")
         File = list(self)
         Decrypted = []
+        Move = []
         SplitKey = list(PDkey)
 
         for i in SplitKey:
             if i in characters:
-                move = characters.index(i)
-        for j in File:
-            if j in characters:
-                CharIn = characters.index(j)
-                newChar = characters[(CharIn - move) % len(characters)]
+                moveChar = characters.index(i)
+                Move.append(moveChar)
+        cnt = 0
+        for stg in File:
+            if stg in characters:
+                CharIn = characters.index(stg)
+                CharMove = Move[cnt % len(Move)]
+                newChar = characters[(CharIn - CharMove) % len(characters)]
                 Decrypted.append(newChar)
+            cnt += 1
 
         DecryptStr = ''.join(Decrypted)
         print("Successfully Decrypted File!")
