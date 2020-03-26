@@ -16,7 +16,7 @@ class Security:
                 Encrypted.append(newChar)
 
         EncryptStr = ''.join(Encrypted)
-        print("Successfully Encrypted File!")
+        print("Successfully Encrypted Text!")
 
         print(EncryptStr)
         return EncryptStr
@@ -33,7 +33,7 @@ class Security:
                 Decrypted.append(newChar)
 
         DecryptStr = ''.join(Decrypted)
-        print("Successfully Decrypted File!")
+        print("Successfully Decrypted Text!")
 
         print(DecryptStr)
         return DecryptStr
@@ -59,7 +59,7 @@ class Security:
             cnt += 1
 
         EncryptStr = ''.join(Encrypted)
-        print("Successfully Encrypted File!")
+        print("Successfully Encrypted Text!")
 
         print(EncryptStr)
         return EncryptStr
@@ -85,7 +85,7 @@ class Security:
             cnt += 1
 
         DecryptStr = ''.join(Decrypted)
-        print("Successfully Decrypted File!")
+        print("Successfully Decrypted Text!")
 
         print(DecryptStr)
         return DecryptStr
