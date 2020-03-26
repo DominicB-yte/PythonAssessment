@@ -58,16 +58,21 @@ class Security:
             data = FileToEncrypt.read()
         SplitFile = list(data)
         Encrypted = []
+        Move = []
         SplitKey = list(PEkey)
 
         for i in SplitKey:
             if i in characters:
-                move = characters.index(i)
+                moveChar = characters.index(i)
+                Move.append(moveChar)
+        cnt = 0
         for j in SplitFile:
             if j in characters:
                 CharIn = characters.index(j)
-                newChar = characters[(CharIn + move) % len(characters)]
+                CharMove = Move[cnt % len(Move)]
+                newChar = characters[(CharIn + CharMove) % len(characters)]
                 Encrypted.append(newChar)
+            cnt += 1
 
         EncryptStr = ''.join(Encrypted)
         print("Successfully Encrypted File!")
@@ -84,16 +89,21 @@ class Security:
             data = FileToEncrypt.read()
         SplitFile = list(data)
         Decrypted = []
+        Move = []
         SplitKey = list(PDkey)
 
         for i in SplitKey:
             if i in characters:
-                move = characters.index(i)
+                moveChar = characters.index(i)
+                Move.append(moveChar)
+        cnt = 0
         for j in SplitFile:
             if j in characters:
                 CharIn = characters.index(j)
-                newChar = characters[(CharIn - move) % len(characters)]
+                CharMove = Move[cnt % len(Move)]
+                newChar = characters[(CharIn - CharMove) % len(characters)]
                 Decrypted.append(newChar)
+            cnt += 1
 
         DecryptStr = ''.join(Decrypted)
         print("Successfully Decrypted File!")
